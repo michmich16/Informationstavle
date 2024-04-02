@@ -37,7 +37,7 @@ async function FetchAPI(url, json = true) {
 }
 
 async function main() {
-  const news = await FetchAPI(urls.busTimes);
+  const news = await FetchAPI(urls.wheather);
 
   console.log(news);
 }

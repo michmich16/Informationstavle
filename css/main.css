@@ -1,15 +1,24 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --red: #e03235;
-    --blue: #0196d2;
-    --green: #008516;
-    --yelow: #d98825;
-    --mid-dark: #3e3d41;
-    --idk-what-to-call-this-one: #ded3b6;
+  --red: #e03235;
+  --blue: #0196d2;
+  --green: #008516;
+  --yelow: #d98825;
+  --mid-dark: #3e3d41;
+  --idk-what-to-call-this-one: #ded3b6;
+}
 
+body {
+  font-family: "System-ui", sans-serif;
+  background-color: var(--mid-dark);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
