@@ -37,9 +37,11 @@ async function FetchAPI(url, json = true) {
 }
 
 async function main() {
-  const news = await FetchAPI(urls.kantine);
+  const news = await FetchAPI(urls.busTimes);
 
   console.log(news);
 }
 
 main();
+
+export { FetchAPI, urls };
