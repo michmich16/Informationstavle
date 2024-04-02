@@ -6,6 +6,7 @@ const urls = {
     "https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric",
   kantine:
     "https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json",
+  aktivitets: "https://iws.itcn.dk/techcollege/schedules?departmentcode=smed",
 };
 
 /**
