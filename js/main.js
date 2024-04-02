@@ -36,12 +36,14 @@ async function FetchAPI(url, json = true) {
   return data;
 }
 
-async function main() {
-  const news = await FetchAPI(urls.wheather);
-
-  console.log(news);
-}
-
-main();
+Promise.all([
+  FetchAPI(urls.news),
+  FetchAPI(urls.busTimes),
+  FetchAPI(urls.wheather),
+  // FetchAPI(urls.kantine),
+  FetchAPI(urls.aktivitets),
+]).then(([news, busTimes, wheather, kantine, aktivitets]) => {
+  console.log(news, busTimes, wheather, kantine, aktivitets);
+});
 
 export { FetchAPI, urls };
