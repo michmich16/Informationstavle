@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
+    <style>
+        .elementID {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+    </style>
 </head>
-<body>
-    <div id="mad-html"></div>
-    <div id="bus-html"></div>
-    <div id="aktivitet-html"></div>
-    <div id="vejr-html"></div>
-    <div id="nyheder-html"></div>
 
-    <script src="js/main.js"></script>
+<body>
+    <div class="elementID">
+        <div id="news-data"></div>
+        <div id="bus-data"></div>
+        <div id="weather-data"></div>
+        <div id="kantine-data"></div>
+        <div id="aktivitets-data"></div>
+    </div>
+
+    <script src="js/test2.js" defer></script>
 </body>
+
 </html>
