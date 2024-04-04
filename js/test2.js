@@ -41,14 +41,20 @@ Promise.all([
 
     // We want to get the week day in Danish
     const currentWeekDay = new Date().toLocaleDateString('da-DK', { weekday: 'long' });
-    const findDay = kantine.Days.find((day) => day.Day === currentWeekDay);
-    
+    const findDay = kantine.Days.find((day) => day.DayName === currentWeekDay);
 
-    console.log(kantine);
+    if (findDay === "lørdag" || findDay === "søndag") {
+        displayData("Ingen mad i weekenden!", 'kantine-data');
+    } else {
+        displayData(`${findDay.DayName} - ${findDay.Dish}`, 'kantine-data');
+    }
 
-    // displayData(busTimes, 'bus-data');
-    // displayData(weather, 'weather-data');
-    // displayData(kantine, 'kantine-data');
+    const formatDateToDaninsh = (date) => {
+        return new Date(date).toLocaleDateString('da-DK', { weekday: 'long' });
+    }
+ 
+    displayData(`${aktivitets.value.map((val) => `${val.Education} - ${val.Room} - ${formatDateToDaninsh(val.StartDate)} - ${val.Subject} - ${val.Team}`)}`, 'aktivitets-data');
+
     // displayData(aktivitets, 'aktivitets-data');
 }).catch(error => console.error('Error fetching data:', error));
 
