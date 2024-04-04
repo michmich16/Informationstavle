@@ -50,7 +50,7 @@ Promise.all([
     }
 
     const formatDateToDaninsh = (date) => {
-        return new Date(date).toLocaleDateString('da-DK', { weekday: 'long' });
+        return new Date(date).toLocaleDateString('da-DK', { weekday: 'long' }) + " " + new Date(date).toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
     }
  
     displayData(`${aktivitets.value.map((val) => `${val.Education} - ${val.Room} - ${formatDateToDaninsh(val.StartDate)} - ${val.Subject} - ${val.Team}`)}`, 'aktivitets-data');
