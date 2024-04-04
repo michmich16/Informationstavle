@@ -53,12 +53,15 @@ grid-gap: 20px; */
 
 .element div {
     background-color: var(--red);
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .element h2 {
     margin-top: 0;
     font-size: 1.5rem;
     color: var(--idk-what-to-call-this-one);
+    text-shadow: 2px 2px 2px var(--mid-dark);
 }
 
 .element p {
