@@ -1,43 +1,74 @@
-async function fetchData(url) {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+const urls = {
+    news: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.dr.dk%2Fnyheder%2Fservice%2Ffeeds%2Fallenyheder%23",
+    busTimes: "https://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=851400602&id2=851973402&rttime&format=json&useBus=1",
+    weather: "https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric",
+    kantine: "https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json",
+    aktivitets: "https://iws.itcn.dk/techcollege/schedules?departmentcode=smed",
+};
+
+async function FetchAPI(url, json = true) {
+    const response = await fetch(url);
+
+    // If the response is not ok, throw an error
+    if (!response.ok) {
+        throw new Error(`There was an error: ${response.status} - ${response.statusText}`);
+    }
+
+    let data;
+
+    if (json) {
+        data = await response.json();
+    } else {
+        data = await response.text();
+    }
+
+    return data;
+}
+
+Promise.all([
+    FetchAPI(urls.news),
+    FetchAPI(urls.busTimes),
+    FetchAPI(urls.weather),
+    FetchAPI(urls.kantine),
+    FetchAPI(urls.aktivitets),
+]).then(([news, busTimes, weather, kantine, aktivitets]) => {
+    displayData(news, 'news-data');
+    displayBusTimes(busTimes, 'bus-data');
+    displayData(weather, 'weather-data');
+    displayData(kantine, 'kantine-data');
+    displayData(aktivitets, 'aktivitets-data');
+}).catch(error => console.error('Error fetching data:', error));
+
+function displayData(data, elementId) {
+    const element = document.getElementById(elementId);
+    if (data) {
+        if (typeof data === 'string') {
+            element.innerText = data;
+        } else {
+            element.innerText = JSON.stringify(data, null, 2);
         }
-        return await response.json();
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        return null;
+    } else {
+        element.innerText = 'Data not available';
     }
 }
 
-async function fetchAllData() {
-    const madApiUrl = 'https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json';
-    const busApiUrl = 'https://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=851400602&id2=851973402&rttime&format=json&useBus=1';
-    const aktivitetApiUrl = 'https://iws.itcn.dk/techcollege/schedules?departmentcode=smed';
-    const vejrApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric';
-    const nyhederApiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.dr.dk%2Fnyheder%2Fservice%2Ffeeds%2Fallenyheder%23';
-
-    try {
-        const madData = await fetchData(madApiUrl);
-        console.log('Data from Mad-Planner:', madData);
-
-        const busData = await fetchData(busApiUrl);
-        console.log('Data from Bus-Planner:', busData);
-
-        const aktivitetData = await fetchData(aktivitetApiUrl);
-        console.log('Data from Aktivitet:', aktivitetData);
-
-        const vejrData = await fetchData(vejrApiUrl);
-        console.log('Data from Vejr:', vejrData);
-
-        const nyhederData = await fetchData(nyhederApiUrl);
-        console.log('Data from Nyheder:', nyhederData);
-
-        // Here you can do something with all the data
-    } catch (error) {
-        console.error('Error fetching data:', error);
+function displayBusTimes(data, elementId) {
+    const element = document.getElementById(elementId);
+    if (data) {
+        if (data.DepartureBoard && data.DepartureBoard.Departure) {
+            const departures = data.DepartureBoard.Departure;
+            const relevantData = departures.map(departure => {
+                return {
+                    name: departure.name,
+                    stop: departure.stop,
+                    time: departure.time,
+                };
+            });
+            element.innerText = JSON.stringify(relevantData, null, 2);
+        } else {
+            element.innerText = 'No bus times available';
+        }
+    } else {
+        element.innerText = 'Data not available';
     }
 }
-
-fetchAllData();
