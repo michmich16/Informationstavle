@@ -38,7 +38,7 @@ grid-gap: 20px; */
     grid-template-columns: 2fr 1fr;
 }
 
-.weather-kantine-grid{
+.weather-kantine-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -91,7 +91,7 @@ grid-gap: 20px; */
     font-style: italic;
 }
 
-#weather-data section{
+#weather-data section {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1rem;
@@ -101,6 +101,14 @@ grid-gap: 20px; */
 #news-data {
     white-space: nowrap;
     overflow-x: auto;
+    background-color: #e03235;
+    
+}
+
+#news-data p {
+    color: #ded3b6;
+    text-transform: uppercase;
+
 }
 
 /* Add a styling rule for the divider */
