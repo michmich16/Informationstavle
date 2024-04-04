@@ -1,3 +1,8 @@
+// Call the renderData function to display data
+renderData();
+
+fetchAllData();
+
 async function fetchData(url) {
     try {
         const response = await fetch(url);
@@ -47,7 +52,6 @@ async function renderData() {
     if (!data) {
         return;
     }
-    
 
     data.forEach(item => {
         const card = document.createElement('div');
@@ -64,8 +68,3 @@ async function renderData() {
         container.appendChild(card);
     });
 }
-
-// Call the renderData function to display data
-renderData();
-
-fetchAllData();
