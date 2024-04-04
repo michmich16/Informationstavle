@@ -9,9 +9,10 @@ const urls = {
 async function FetchAPI(url, json = true) {
     const response = await fetch(url);
 
-    // If the response is not ok, throw an error
     if (!response.ok) {
-        throw new Error(`There was an error: ${response.status} - ${response.statusText}`);
+        throw new Error(
+            `There was an error: ${response.status} - ${response.statusText}`
+        );
     }
 
     let data;
@@ -32,43 +33,48 @@ Promise.all([
     FetchAPI(urls.kantine),
     FetchAPI(urls.aktivitets),
 ]).then(([news, busTimes, weather, kantine, aktivitets]) => {
-    displayData(news, 'news-data');
-    displayBusTimes(busTimes, 'bus-data');
-    displayData(weather, 'weather-data');
-    displayData(kantine, 'kantine-data');
-    displayData(aktivitets, 'aktivitets-data');
+    console.log(busTimes);
+    displayData(news.items.map(val => val.title).join(" "), 'news-data');
+    displayData(busTimes.MultiDepartureBoard.Departure.map(val => `${val.line} ${val.stop} ${val.time}`).join("<hr class='bus-divider'>"), 'bus-data', 'bus-time');
+    displayData(`${weather.name} ${weather.main.temp}°C`, 'weather-data', 'weather');
+
+    const currentWeekDay = new Date().toLocaleDateString('da-DK', { weekday: 'long' });
+    const currentDate = new Date().toLocaleDateString('da-DK', { weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' });
+
+    kantine.Days.forEach(day => {
+        const dayName = day.DayName.toLowerCase();
+        const dish = day.Dish;
+
+        let displayText = `${dayName.charAt(0).toUpperCase() + dayName.slice(1)} - ${dish}`;
+        if (dayName === currentWeekDay.toLowerCase()) {
+            displayText += " (Today)";
+        }
+
+        displayData(displayText, 'kantine-data', 'kantine');
+        // Add a divider after each day
+        displayData('<hr class="kantine-divider">', 'kantine-data');
+    });
+
+    const formatDateToDaninsh = (date) => {
+        return new Date(date).toLocaleDateString('da-DK', { weekday: 'long' });
+    }
+
+    // Filter aktivitets based on current date
+    const currentDateFormatted = new Date().toISOString().split('T')[0];
+    const filteredAktivitets = aktivitets.value.filter(val => val.StartDate.split('T')[0] === currentDateFormatted);
+    displayData(filteredAktivitets.map(val => ` ${val.Room} - ${val.Education} -${formatDateToDaninsh(val.StartDate)} - ${val.Subject}`).join("<span>"), 'aktivitets-data', 'aktivitets');
+
 }).catch(error => console.error('Error fetching data:', error));
 
-function displayData(data, elementId) {
+function displayData(data, elementId, className = "") {
     const element = document.getElementById(elementId);
-    if (data) {
-        if (typeof data === 'string') {
-            element.innerText = data;
-        } else {
-            element.innerText = JSON.stringify(data, null, 2);
-        }
-    } else {
-        element.innerText = 'Data not available';
-    }
-}
 
-function displayBusTimes(data, elementId) {
-    const element = document.getElementById(elementId);
     if (data) {
-        if (data.DepartureBoard && data.DepartureBoard.Departure) {
-            const departures = data.DepartureBoard.Departure;
-            const relevantData = departures.map(departure => {
-                return {
-                    name: departure.name,
-                    stop: departure.stop,
-                    time: departure.time,
-                };
-            });
-            element.innerText = JSON.stringify(relevantData, null, 2);
-        } else {
-            element.innerText = 'No bus times available';
+        const p = document.createElement('p');
+        p.innerHTML = data;
+        if (className !== "") {
+            p.classList.add(className);
         }
-    } else {
-        element.innerText = 'Data not available';
+        element.appendChild(p);
     }
 }
