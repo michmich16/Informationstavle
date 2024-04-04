@@ -75,6 +75,7 @@ grid-gap: 20px; */
 
 .element p.bus-time {
     color: var(--green);
+    font-weight: bold;
 }
 
 .element p.weather {
@@ -102,7 +103,7 @@ grid-gap: 20px; */
     white-space: nowrap;
     overflow-x: auto;
     background-color: #e03235;
-    
+
 }
 
 #news-data p {
@@ -113,6 +114,12 @@ grid-gap: 20px; */
 
 /* Add a styling rule for the divider */
 .kantine-divider {
+    border-top: 1px solid var(--mid-dark);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bus-divider {
     border-top: 1px solid var(--mid-dark);
     margin-top: 10px;
     margin-bottom: 10px;
