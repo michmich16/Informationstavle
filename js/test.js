@@ -51,7 +51,7 @@ Promise.all([
       const total = Math.floor(diff / 60000);
 
       if (total < 0) {
-        return "Bus has left";
+        return "Bussen er kørt";
       } else if (total < 60) {
         return `${total} minutter`;
       } else if (total === 60) {
