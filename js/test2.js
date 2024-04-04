@@ -34,22 +34,28 @@ Promise.all([
     FetchAPI(urls.kantine),
     FetchAPI(urls.aktivitets),
 ]).then(([news, busTimes, weather, kantine, aktivitets]) => {
-    displayData(news, 'news-data');
-    displayData(busTimes, 'bus-data');
-    displayData(weather, 'weather-data');
-    displayData(kantine, 'kantine-data');
-    displayData(aktivitets, 'aktivitets-data');
+
+    displayData(`${news.items.map((val) => `${val.title}`).join(" ")}`, 'news-data');
+    displayData(`${busTimes.MultiDepartureBoard.Departure.map((val) => `${val.name} ${val.direction} ${val.time}`).join(" ")}`, 'bus-data');
+    displayData(`${weather.name} ${weather.main.temp}°C`, 'weather-data');
+
+    // We want to get the week day in Danish
+    const currentWeekDay = new Date().toLocaleDateString('da-DK', { weekday: 'long' });
+    const findDay = kantine.Days.find((day) => day.Day === currentWeekDay);
+    
+
+    console.log(kantine);
+
+    // displayData(busTimes, 'bus-data');
+    // displayData(weather, 'weather-data');
+    // displayData(kantine, 'kantine-data');
+    // displayData(aktivitets, 'aktivitets-data');
 }).catch(error => console.error('Error fetching data:', error));
 
 function displayData(data, elementId) {
     const element = document.getElementById(elementId);
+
     if (data) {
-        if (typeof data === 'string') {
-            element.innerText = data;
-        } else {
-            element.innerText = JSON.stringify(data, null, 2);
-        }
-    } else {
-        element.innerText = 'Data not available';
+        element.innerText = data;
     }
 }

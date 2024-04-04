@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
 :root {
@@ -11,5 +12,9 @@
     --yelow: #d98825;
     --mid-dark: #3e3d41;
     --idk-what-to-call-this-one: #ded3b6;
+}
 
+body {
+    background-color: var(--mid-dark);
+    color: white;
 }

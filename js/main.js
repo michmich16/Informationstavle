@@ -47,6 +47,7 @@ async function renderData() {
     if (!data) {
         return;
     }
+    
 
     data.forEach(item => {
         const card = document.createElement('div');
