@@ -21,8 +21,17 @@ body {
     color: var(--mid-dark);
 }
 
-.container {
+/* .container {
     max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+} */
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 20px auto;
     padding: 20px;
 }
@@ -38,7 +47,7 @@ grid-gap: 20px; */
     grid-template-columns: 2fr 1fr;
 }
 
-.weather-kantine-grid{
+.weather-kantine-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -75,6 +84,7 @@ grid-gap: 20px; */
 
 .element p.bus-time {
     color: var(--green);
+    font-weight: bold;
 }
 
 .element p.weather {
@@ -91,7 +101,7 @@ grid-gap: 20px; */
     font-style: italic;
 }
 
-#weather-data section{
+#weather-data section {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1rem;
@@ -101,10 +111,24 @@ grid-gap: 20px; */
 #news-data {
     white-space: nowrap;
     overflow-x: auto;
+    background-color: #e03235;
+
+}
+
+#news-data p {
+    color: #ded3b6;
+    text-transform: uppercase;
+
 }
 
 /* Add a styling rule for the divider */
 .kantine-divider {
+    border-top: 1px solid var(--mid-dark);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bus-divider {
     border-top: 1px solid var(--mid-dark);
     margin-top: 10px;
     margin-bottom: 10px;

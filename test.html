@@ -2,8 +2,9 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>Data Display</title>
     <style>
         * {
@@ -25,12 +26,12 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            background-color: #3e3d41;
             color: var(--mid-dark);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 20px auto;
             padding: 20px;
         }
@@ -38,27 +39,38 @@
         .element-grid {
             /* display: grid; */
             /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        grid-gap: 20px; */
+grid-gap: 20px; */
         }
 
         .news-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .weather-kantine-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
         }
 
 
         .element {
-            background-color: #fff;
+            background-color: var(--idk-what-to-call-this-one);
             padding: 20px;
-            border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 1rem;
+        }
+
+        .element div {
+            background-color: var(--red);
+            padding: 10px;
+            margin-bottom: 10px;
         }
 
         .element h2 {
             margin-top: 0;
             font-size: 1.5rem;
-            color: var(--blue);
+            color: var(--idk-what-to-call-this-one);
+            text-shadow: 2px 2px 2px var(--mid-dark);
         }
 
         .element p {
@@ -72,6 +84,7 @@
 
         .element p.bus-time {
             color: var(--green);
+            font-weight: bold;
         }
 
         .element p.weather {
@@ -88,10 +101,27 @@
             font-style: italic;
         }
 
-        /* Scrollable news section */
+
+        #weather-data section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+        }
+
+        #weather {}
+
+        /* Scrolling news section */
         #news-data {
             white-space: nowrap;
             overflow-x: auto;
+            background-color: #e03235;
+
+        }
+
+        #news-data p {
+            color: #ded3b6;
+            text-transform: uppercase;
+
         }
 
         /* Add a styling rule for the divider */
@@ -100,39 +130,95 @@
             margin-top: 10px;
             margin-bottom: 10px;
         }
-    </style>
 
+        .bus-divider {
+            border-top: 1px solid var(--mid-dark);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .aktivitets-divider {
+            border-top: 1px solid var(--mid-dark);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <div class="element-grid">
             <div class="news-grid">
-                <div class="element" id="bus-data">
-                    <h2>Bus Times</h2>
-                </div>
-                <div class="element" id="weather-data">
-                    <h2>Weather</h2>
-                </div>
-                <div class="element" id="kantine-data">
-                    <h2>Kantine</h2>
+                <div class="aktivitets-grid">
+                    <div class="element" id="weather-data">
+                        <div>
+                            <h2>TECHCOLLEGE</h2>
+                        </div>
+                        <section>
+                            <!-- grid here -->
+                            <article>
+                                <h4>ST. BEDEDAG PÅ TECHCOLLEGE FRA 2024</h4>
+                                <h5>Af Ledelsessekretariatet d. 15-3-2023</h5>
+                                <p>
+                                    Som I ved vedtog Folketinget 28. februar 2023 L 13 om
+                                    konsekvenser ved afskaffelsen af store bededag som
+                                    helligdag. Med lovforslaget bliver store bededag til en
+                                    almindelig ekstra arbejdsdag fra og med 2024.
+                                    https://www.regeringen.dk/nyheder/2023/lovforslag-om-afskaffelse-store-bededag-er-vedtaget-i-folketinget/
+                                </p>
+                                <p>
+                                    Dette betyder, at her på TECHCOLLEGE bliver St. Bededag fra
+                                    2024 en normal undervisningsdag for alle vores elever og en
+                                    almindelig ekstra arbejdsdag for alle medarbejdere.
+                                </p>
+                            </article>
+                            <article>
+                                <h4>KOM TIL TEMADAG OM GRØN OMSTILLING D. 30. MARTS</h4>
+                                <h5>Af Kim Mikael Jensen d. 13-3-2023</h5>
+                                <p>
+                                    Er du nysgerrig på grøn omstilling inden for dit fagområde,
+                                    så kom til temadag på TECHCOLLEGE d. 30. marts.
+                                </p>
+                                <p>
+                                    Du kan blandt andet møde Aalborg Portland, Brøndums
+                                    Autoservice, Frandsen & Søndergaard, Lundsby Renewable
+                                    Solutions.
+                                </p>
+                            </article>
+                        </section>
+                    </div>
+                    <div class="weather-kantine-grid">
+                        <div class="element" id="bus-data">
+                            <div>
+                                <h2>BUSAFGANG</h2>
+                            </div>
+                        </div>
+                        <div class="element" id="kantine-data">
+                            <div>
+                                <h2>KANTINE</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="element" id="aktivitets-data">
-                    <h2>Activities</h2>
+                    <div>
+                        <h2>SKEMA</h2>
+                    </div>
                 </div>
             </div>
-            <div class="element" id="news-data">
-                <h2>News</h2>
-            </div>
+            <marquee class="element" id="news-data" loop="true" scrollamount="13"></marquee>
         </div>
     </div>
 
     <script>
         const urls = {
             news: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.dr.dk%2Fnyheder%2Fservice%2Ffeeds%2Fallenyheder%23",
-            busTimes: "https://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=851400602&id2=851973402&rttime&format=json&useBus=1",
-            weather: "https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric",
-            kantine: "https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json",
+            busTimes:
+                "https://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=851400602&id2=851973402&rttime&format=json&useBus=1",
+            weather:
+                "https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric",
+            kantine:
+                "https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json",
             aktivitets: "https://iws.itcn.dk/techcollege/schedules?departmentcode=smed",
         };
 
@@ -162,49 +248,120 @@
             FetchAPI(urls.weather),
             FetchAPI(urls.kantine),
             FetchAPI(urls.aktivitets),
-        ]).then(([news, busTimes, weather, kantine, aktivitets]) => {
-            console.log(kantine);
-            displayData(news.items.map(val => val.title).join(" "), 'news-data');
-            displayData(busTimes.MultiDepartureBoard.Departure.map(val => `${val.name} ${val.direction} ${val.time}`).join(" "), 'bus-data', 'bus-time');
-            displayData(`${weather.name} ${weather.main.temp}°C`, 'weather-data', 'weather');
+        ])
+            .then(([news, busTimes, weather, kantine, aktivitets]) => {
+                console.log(busTimes);
+                console.log(aktivitets);
+                displayData(news.items.map((val) => val.title).join(" "), "news-data");
 
-            const currentWeekDay = new Date().toLocaleDateString('da-DK', { weekday: 'long' });
-            const currentDate = new Date().toLocaleDateString('da-DK', { weekday: 'long', year: 'numeric', month: '2-digit', day: '2-digit' });
+                // Funktion der siger hvor mange minutter der er til næste bus: tid er i formatet "11:33" osv
+                const minutterTilNæsteBus = (time) => {
+                    const now = new Date();
+                    const busTime = new Date();
+                    const [hours, minutes] = time.split(":");
+                    busTime.setHours(hours);
+                    busTime.setMinutes(minutes);
+                    const diff = busTime - now;
+                    const total = Math.floor(diff / 60000);
 
-            kantine.Days.forEach(day => {
-                const dayName = day.DayName.toLowerCase();
-                const dish = day.Dish;
+                    if (total < 0) {
+                        return "Bussen er kørt";
+                    } else if (total < 60) {
+                        return `${total} minutter`;
+                    } else if (total === 60) {
+                        return "1 time";
+                    } else {
+                        return `${Math.floor(total / 60)} timer og ${total % 60} minutter`;
+                    }
+                };
 
-                let displayText = `${dayName.charAt(0).toUpperCase() + dayName.slice(1)} - ${dish}`;
-                if (dayName === currentWeekDay.toLowerCase()) {
-                    displayText += " (Today)";
-                }
+                console.log(busTimes);
 
-                displayData(displayText, 'kantine-data', 'kantine');
-                // Add a divider after each day
-                displayData('<hr class="kantine-divider">', 'kantine-data');
-            });
+                // Display only the first 5 items from the Departure array
+                displayData(
+                    busTimes.MultiDepartureBoard.Departure.slice(0, 5).map(
+                        (val) => `${val.line} ${val.stop} ${minutterTilNæsteBus(val.time)}`
+                    ).join("<hr class='bus-divider'>"),
+                    "bus-data",
+                    "bus-time"
+                );
 
-            const formatDateToDaninsh = (date) => {
-                return new Date(date).toLocaleDateString('da-DK', { weekday: 'long' });
-            }
+                displayData(
+                    `${weather.name} ${weather.main.temp}°C`,
+                    "weather-data",
+                    "weather"
+                );
 
-            displayData(aktivitets.value.map(val => `${val.Education} - ${val.Room} - ${formatDateToDaninsh(val.StartDate)} - ${val.Subject}`).join("<br>"), 'aktivitets-data', 'aktivitets');
+                const currentWeekDay = new Date().toLocaleDateString("da-DK", {
+                    weekday: "long",
+                });
+                const currentDate = new Date().toLocaleDateString("da-DK", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit",
+                });
 
-        }).catch(error => console.error('Error fetching data:', error));
+                kantine.Days.forEach((day) => {
+                    const dayName = day.DayName.toLowerCase();
+                    const dish = day.Dish;
+
+                    let displayText = `${dayName.charAt(0).toUpperCase() + dayName.slice(1)
+                        } - ${dish}`;
+                    if (dayName === currentWeekDay.toLowerCase()) {
+                        displayText += " (Today)";
+                    }
+
+                    displayData(displayText, "kantine-data", "kantine");
+                    // Add a divider after each day
+                    displayData('<hr class="kantine-divider">', "kantine-data");
+                });
+
+                const formatDateToDaninsh = (date) => {
+                    return new Date(date).toLocaleDateString("da-DK", { weekday: "long" });
+                };
+
+                // Filter aktivitets based on current date and education
+                const currentDateFormatted = new Date().toISOString().split("T")[0];
+                const filteredAktivitets = aktivitets.value.filter((val) => {
+                    return val.StartDate.split("T")[0] === currentDateFormatted && (val.Education === "Webudvikler" || val.Education === "Grafisk Teknik");
+                });
+                displayData(
+                    filteredAktivitets
+                        .map(
+                            (val) =>
+                                ` ${val.Room} - ${val.Education} -${formatDateToDaninsh(
+                                    val.StartDate
+                                )} - ${val.Subject}`
+                        ),
+                    "aktivitets-data",
+                    "aktivitets"
+                );
+            })
+            .catch((error) => console.error("Error fetching data:", error));
 
         function displayData(data, elementId, className = "") {
             const element = document.getElementById(elementId);
 
             if (data) {
-                const p = document.createElement('p');
-                p.innerHTML = data;
-                if (className !== "") {
-                    p.classList.add(className);
-                }
-                element.appendChild(p);
+                const dataArray = Array.isArray(data) ? data : [data]; // Ensure data is an array
+                dataArray.forEach((item, index) => {
+                    const p = document.createElement("p");
+                    p.innerHTML = item;
+                    if (className !== "") {
+                        p.classList.add(className);
+                    }
+                    element.appendChild(p);
+                    // Add underline after each p element
+                    if (className === "aktivitets" && index < dataArray.length - 1) {
+                        const hr = document.createElement("hr");
+                        hr.classList.add("aktivitets-divider"); // Add a specific class to the hr element
+                        element.appendChild(hr);
+                    }
+                });
             }
         }
+
     </script>
 </body>
 
