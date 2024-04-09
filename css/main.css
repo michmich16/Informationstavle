@@ -100,7 +100,9 @@ grid-gap: 20px; */
 .element p.aktivitets {
   color: var(--blue);
   font-style: italic;
+  font-weight: bold;
   font-size: 100%;
+  padding-left:1rem ;
 }
 
 
