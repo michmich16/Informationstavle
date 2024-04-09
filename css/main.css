@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 110%;
+  font-size: 100%;
 }
 
 :root {
@@ -69,7 +69,7 @@ grid-gap: 20px; */
 
 .element h2 {
   margin-top: 0;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
@@ -119,7 +119,7 @@ grid-gap: 20px; */
 
 #clock {
   margin-top: 0;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
@@ -136,7 +136,7 @@ grid-gap: 20px; */
 
 #date {
   margin-top: 0;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
