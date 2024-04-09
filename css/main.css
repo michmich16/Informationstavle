@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 100%;
-  /* Reduce font size by 10% */
 }
 
 :root {
@@ -35,7 +34,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  padding: 10px;
+  padding: 20px;
 }
 
 .element-grid {
@@ -70,7 +69,7 @@ grid-gap: 20px; */
 
 .element h2 {
   margin-top: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
@@ -101,14 +100,14 @@ grid-gap: 20px; */
 .element p.aktivitets {
   color: var(--blue);
   font-style: italic;
-  font-size: 75%;
+  font-size: 100%;
 }
 
 
 #weather-data section {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 #weather-data div {
@@ -118,7 +117,7 @@ grid-gap: 20px; */
 
 #clock {
   margin-top: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
@@ -135,7 +134,7 @@ grid-gap: 20px; */
 
 #date {
   margin-top: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
