@@ -32,11 +32,11 @@ async function FetchAPI(url, json = true) {
 Promise.all([
   FetchAPI(urls.news),
   FetchAPI(urls.busTimes),
-  FetchAPI(urls.weather),
+//   FetchAPI(urls.weather),
   FetchAPI(urls.kantine),
   FetchAPI(urls.aktivitets),
 ])
-  .then(([news, busTimes, weather, kantine, aktivitets]) => {
+  .then(([news, busTimes, kantine, aktivitets]) => {
       console.log(busTimes);
       console.log(aktivitets);
       displayData(news.items.map((val) => val.title).join(" "), "news-data");
@@ -73,11 +73,11 @@ Promise.all([
           "bus-time"
       );
 
-      displayData(
-          `${weather.name} ${weather.main.temp}°C`,
-          "weather-data",
-          "weather"
-      );
+    //   displayData(
+    //       `${weather.name} ${weather.main.temp}°C`,
+    //       "weather-data",
+    //       "weather"
+    //   );
 
       const currentWeekDay = new Date().toLocaleDateString("da-DK", {
           weekday: "long",
