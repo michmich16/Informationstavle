@@ -30,9 +30,18 @@
             color: var(--mid-dark);
         }
 
-        .container {
+        /* .container {
             max-width: 1400px;
             margin: 20px auto;
+            padding: 20px;
+        } */
+
+        .container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
             padding: 20px;
         }
 
@@ -57,7 +66,7 @@ grid-gap: 20px; */
             background-color: var(--idk-what-to-call-this-one);
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 1rem;
+            margin: 0.5rem;
         }
 
         .element div {
@@ -108,7 +117,32 @@ grid-gap: 20px; */
             gap: 1rem;
         }
 
+        #weather-data div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #clock {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--idk-what-to-call-this-one);
+            text-shadow: 2px 2px 2px var(--mid-dark);
+        }
+
         #weather {}
+
+        #aktivitets-data div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #date {
+            margin-top: 0;
+            font-size: 1.5rem;
+            color: var(--idk-what-to-call-this-one);
+            text-shadow: 2px 2px 2px var(--mid-dark);
+        }
+
 
         /* Scrolling news section */
         #news-data {
@@ -153,6 +187,7 @@ grid-gap: 20px; */
                     <div class="element" id="weather-data">
                         <div>
                             <h2>TECHCOLLEGE</h2>
+                            <p id="clock" class="clock"></p>
                         </div>
                         <section>
                             <!-- grid here -->
@@ -203,6 +238,7 @@ grid-gap: 20px; */
                 <div class="element" id="aktivitets-data">
                     <div>
                         <h2>SKEMA</h2>
+                        <p id="date" class="date"></p>
                     </div>
                 </div>
             </div>
@@ -309,7 +345,7 @@ grid-gap: 20px; */
                     let displayText = `${dayName.charAt(0).toUpperCase() + dayName.slice(1)
                         } - ${dish}`;
                     if (dayName === currentWeekDay.toLowerCase()) {
-                        displayText += " (Today)";
+                        displayText += " (Idag)";
                     }
 
                     displayData(displayText, "kantine-data", "kantine");
@@ -317,23 +353,30 @@ grid-gap: 20px; */
                     displayData('<hr class="kantine-divider">', "kantine-data");
                 });
 
-                const formatDateToDaninsh = (date) => {
-                    return new Date(date).toLocaleDateString("da-DK", { weekday: "long" });
+                const formatTime = (date) => {
+                    return new Date(date).toLocaleTimeString("da-DK", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    });
                 };
-
                 // Filter aktivitets based on current date and education
                 const currentDateFormatted = new Date().toISOString().split("T")[0];
                 const filteredAktivitets = aktivitets.value.filter((val) => {
                     return val.StartDate.split("T")[0] === currentDateFormatted && (val.Education === "Webudvikler" || val.Education === "Grafisk Teknik");
                 });
+
+                // Sort aktivitets data based on time
+                filteredAktivitets.sort((a, b) => {
+                    const timeA = new Date(a.StartDate).getTime();
+                    const timeB = new Date(b.StartDate).getTime();
+                    return timeA - timeB;
+                });
+
                 displayData(
-                    filteredAktivitets
-                        .map(
-                            (val) =>
-                                ` ${val.Room} - ${val.Education} -${formatDateToDaninsh(
-                                    val.StartDate
-                                )} - ${val.Subject}`
-                        ),
+                    filteredAktivitets.map(
+                        (val) =>
+                            `${val.Room} - ${val.Education} - ${formatTime(val.StartDate)} - ${val.Subject}`
+                    ),
                     "aktivitets-data",
                     "aktivitets"
                 );
@@ -361,6 +404,44 @@ grid-gap: 20px; */
                 });
             }
         }
+        // Function to update the clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Function to update the clock
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+
+        // Function to update the date
+        function updateDate() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const dateString = `${day}-${month}-${year}`;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Update the date every second
+        setInterval(updateDate, 1000);
 
     </script>
 </body>

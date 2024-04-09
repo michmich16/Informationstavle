@@ -22,7 +22,7 @@ body {
 }
 
 /* .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 20px auto;
     padding: 20px;
 } */
@@ -32,7 +32,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: auto;
     padding: 20px;
 }
 
@@ -57,7 +57,7 @@ grid-gap: 20px; */
     background-color: var(--idk-what-to-call-this-one);
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
+    margin: 0.5rem;
 }
 
 .element div {
@@ -101,13 +101,41 @@ grid-gap: 20px; */
     font-style: italic;
 }
 
+
 #weather-data section {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 1rem;
 }
 
-/* Scrollable news section */
+#weather-data div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#clock {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--idk-what-to-call-this-one);
+    text-shadow: 2px 2px 2px var(--mid-dark);
+}
+
+#weather {}
+
+#aktivitets-data div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#date {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: var(--idk-what-to-call-this-one);
+    text-shadow: 2px 2px 2px var(--mid-dark);
+}
+
+
+/* Scrolling news section */
 #news-data {
     white-space: nowrap;
     overflow-x: auto;
@@ -129,6 +157,12 @@ grid-gap: 20px; */
 }
 
 .bus-divider {
+    border-top: 1px solid var(--mid-dark);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.aktivitets-divider {
     border-top: 1px solid var(--mid-dark);
     margin-top: 10px;
     margin-bottom: 10px;
