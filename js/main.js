@@ -36,7 +36,7 @@ Promise.all([
   FetchAPI(urls.kantine),
   FetchAPI(urls.aktivitets),
 ])
-  .then(([news, busTimes, kantine, aktivitets]) => {
+  .then(([news, busTimes, kantine, aktivitets, weather]) => {
       console.log(busTimes);
       console.log(aktivitets);
       displayData(news.items.map((val) => val.title).join(" "), "news-data");
