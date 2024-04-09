@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <title>Data Display</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Infoboard</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-size: 100%;
-            /* Reduce font size by 10% */
         }
 
         :root {
@@ -30,45 +29,37 @@
             padding: 0;
             background-color: #3e3d41;
             color: var(--mid-dark);
-        }
-
-        /* .container {
-            max-width: 1400px;
-            margin: 20px auto;
-            padding: 20px;
-        } */
-
-        .container {
-            width: 100%;
+            width: 3840px; /* Set body width to match screen width */
+            height: 2160px; /* Set body height to match screen height */
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 3600px; /* Adjust container max-width to fit content */
             padding: 20px;
         }
 
         .element-grid {
-            /* display: grid; */
-            /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-grid-gap: 20px; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-        }
-
-        .weather-kantine-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
 
         .element {
             background-color: var(--idk-what-to-call-this-one);
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 0.5rem;
+            width: 100%;
+            max-width: 3600px; /* Adjust max-width to fit content */
+        }
+
+        .element-grid > .element {
+            width: 95%; /* Adjust width for elements within the grid */
+            max-width: unset;
         }
 
         .element div {
@@ -79,7 +70,7 @@ grid-gap: 20px; */
 
         .element h2 {
             margin-top: 0;
-            font-size: 1.3rem;
+            font-size: 2rem;
             color: var(--idk-what-to-call-this-one);
             text-shadow: 2px 2px 2px var(--mid-dark);
         }
@@ -110,47 +101,9 @@ grid-gap: 20px; */
         .element p.aktivitets {
             color: var(--blue);
             font-style: italic;
-            font-size: 75%;
+            font-size: 100%;
         }
 
-
-        #weather-data section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
-        }
-
-        #weather-data div {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #clock {
-            margin-top: 0;
-            font-size: 1.3rem;
-            color: var(--idk-what-to-call-this-one);
-            text-shadow: 2px 2px 2px var(--mid-dark);
-        }
-
-        .weather {
-            display: flex;
-            justify-content: end;
-        }
-
-        #aktivitets-data div {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        #date {
-            margin-top: 0;
-            font-size: 1.3rem;
-            color: var(--idk-what-to-call-this-one);
-            text-shadow: 2px 2px 2px var(--mid-dark);
-        }
-
-
-        /* Scrolling news section */
         #news-data {
             white-space: nowrap;
             overflow-x: auto;
@@ -158,30 +111,20 @@ grid-gap: 20px; */
             padding: 0.5rem;
             margin-top: 0;
             margin-bottom: 0;
-
+            width: 100%;
+            max-width: 3600px; /* Adjust max-width to fit content */
         }
 
         #news-data p {
             color: #ded3b6;
             text-transform: uppercase;
-
         }
 
-        /* Add a styling rule for the divider */
-        .kantine-divider {
-            border-top: 1px solid var(--mid-dark);
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .bus-divider {
-            border-top: 1px solid var(--mid-dark);
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
+        .kantine-divider,
+        .bus-divider,
         .aktivitets-divider {
-            border-top: 1px solid var(--mid-dark);
+            width: 100%;
+            max-width: 3600px; /* Adjust max-width to fit content */
             margin-top: 10px;
             margin-bottom: 10px;
         }
@@ -290,11 +233,11 @@ grid-gap: 20px; */
         Promise.all([
             FetchAPI(urls.news),
             FetchAPI(urls.busTimes),
-            FetchAPI(urls.weather),
+            //   FetchAPI(urls.weather),
             FetchAPI(urls.kantine),
             FetchAPI(urls.aktivitets),
         ])
-            .then(([news, busTimes, weather, kantine, aktivitets]) => {
+            .then(([news, busTimes, kantine, aktivitets, weather]) => {
                 console.log(busTimes);
                 console.log(aktivitets);
                 displayData(news.items.map((val) => val.title).join(" "), "news-data");
@@ -331,11 +274,11 @@ grid-gap: 20px; */
                     "bus-time"
                 );
 
-                displayData(
-                    `${weather.name} ${weather.main.temp}°C`,
-                    "weather-data",
-                    "weather"
-                );
+                //   displayData(
+                //       `${weather.name} ${weather.main.temp}°C`,
+                //       "weather-data",
+                //       "weather"
+                //   );
 
                 const currentWeekDay = new Date().toLocaleDateString("da-DK", {
                     weekday: "long",
@@ -451,7 +394,6 @@ grid-gap: 20px; */
 
         // Update the date every second
         setInterval(updateDate, 1000);
-
     </script>
 </body>
 
