@@ -126,7 +126,7 @@ Promise.all([
       displayData(
           filteredAktivitets.map(
               (val) =>
-                  `${val.Room} - ${val.Education} - ${formatTime(val.StartDate)} - ${val.Subject}`
+                  `${formatTime(val.StartDate)} - ${val.Team} - ${val.Subject} - ${val.Room}`
           ),
           "aktivitets-data",
           "aktivitets"

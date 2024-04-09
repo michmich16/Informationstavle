@@ -99,7 +99,6 @@ grid-gap: 20px; */
 
 .element p.aktivitets {
   color: var(--blue);
-  font-style: italic;
   font-weight: bold;
   font-size: 100%;
   padding-left:1rem ;
@@ -139,6 +138,14 @@ grid-gap: 20px; */
   font-size: 2rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
+}
+/* PRAKTIK INFO BOX */
+.praktisk-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.praktisk-info article li{
+  list-style: none;
 }
 
 
