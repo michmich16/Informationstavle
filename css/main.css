@@ -74,6 +74,13 @@ grid-gap: 20px; */
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
 
+#weather-data div h2 span{
+  font-weight:lighter;
+}
+#weather-data div h2 {
+  font-weight: bolder;
+}
+
 .element p {
   margin: 0;
   color: var(--mid-dark);
@@ -139,6 +146,7 @@ grid-gap: 20px; */
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
+
 /* PRAKTIK INFO BOX */
 .praktisk-info {
   display: grid;
