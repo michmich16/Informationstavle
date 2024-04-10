@@ -2,353 +2,382 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <title>Infoboard</title>
-    <style>
-       * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 100%;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/main.css" />
+  <title>Infoboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-size: 100%;
+    }
 
-:root {
-  --red: #e03235;
-  --blue: #0196d2;
-  --green: #008516;
-  --yellow: #d98825;
-  --mid-dark: #3e3d41;
-  --idk-what-to-call-this-one: #ded3b6;
-}
+    :root {
+      --red: #e03235;
+      --blue: #0196d2;
+      --green: #008516;
+      --yellow: #d98825;
+      --mid-dark: #3e3d41;
+      --idk-what-to-call-this-one: #ded3b6;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  margin: auto;
-  padding: 0;
-  background-color: #3e3d41;
-  color: var(--mid-dark);
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: auto;
+      padding: 0;
+      background-color: #3e3d41;
+      color: var(--mid-dark);
+    }
 
-/* .container {
+    html,
+    body {
+      height: 100%;
+      /* Make sure html and body are also full height */
+    }
+
+    /* .container {
   max-width: 1400px;
   margin: 20px auto;
   padding: 20px;
 } */
 
-.container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding: 20px;
-}
+    .container {
+      min-height: 100vh;
+      /* This will make the container at least the height of the viewport */
+      display: flex;
+      flex-direction: column;
+      /* Stack children vertically */
+    }
 
-.element-grid {
-  /* display: grid; */
-  /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-grid-gap: 20px; */
-}
+    .news-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
 
-.news-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
+    .weather-kantine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 
-.weather-kantine-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+    .element {
+      background-color: var(--idk-what-to-call-this-one);
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 0.5rem;
+    }
+
+    .element div {
+      background-color: var(--red);
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    .element h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      color: var(--idk-what-to-call-this-one);
+      text-shadow: 2px 2px 2px var(--mid-dark);
+    }
+
+    /* WEATHER DATA */
+    #weather-data section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    #weather-data div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #weather-data div h2 span {
+      font-weight: lighter;
+    }
+
+    #weather-data div h2 {
+      font-weight: bolder;
+    }
+
+    #weather-data div div{
+      margin: 0;
+      padding: 0;
+    }
+
+    .element p {
+      margin: 0;
+      color: var(--mid-dark);
+    }
+
+    .element p.error {
+      color: var(--red);
+    }
+
+    .element p.bus-time {
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    .element p.weather {
+      color: var(--yellow);
+    }
+
+    .element p.kantine {
+      color: var(--red);
+      font-weight: bold;
+    }
+
+    .element p.aktivitets {
+      color: var(--blue);
+      font-weight: bold;
+      font-size: 100%;
+      padding-left: 1rem;
+    }
+
+    .weather-clock-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      padding: 0;
+
+    }
+
+    #weather-d p{
+      margin-top: 0;
+      font-size: 2rem;
+      color: var(--idk-what-to-call-this-one);
+      text-shadow: 2px 2px 2px var(--mid-dark);
+    }
+
+    #clock {
+      margin-top: 0;
+      font-size: 2rem;
+      color: var(--idk-what-to-call-this-one);
+      text-shadow: 2px 2px 2px var(--mid-dark);
+    }
+
+    .weather {
+      display: flex;
+      justify-content: end;
+    }
+
+    #aktivitets-data div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #date {
+      margin-top: 0;
+      font-size: 2rem;
+      color: var(--idk-what-to-call-this-one);
+      text-shadow: 2px 2px 2px var(--mid-dark);
+    }
+
+    /* PRAKTIK INFO BOX */
+    .praktisk-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .praktisk-info article h5 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .praktisk-info article li {
+      list-style: none;
+    }
+
+    .praktisk-info article li p span {
+      font-style: italic;
+    }
 
 
-.element {
-  background-color: var(--idk-what-to-call-this-one);
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 0.5rem;
-}
+    /* Scrolling news section */
+    #news-data {
+      white-space: nowrap;
+      overflow-x: auto;
+      background-color: #e03235;
+      padding: 0.5rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
 
-.element div {
-  background-color: var(--red);
-  padding: 10px;
-  margin-bottom: 10px;
-}
+    #news-data p {
+      color: #ded3b6;
+      text-transform: uppercase;
+    }
 
-.element h2 {
-  margin-top: 0;
-  font-size: 2rem;
-  color: var(--idk-what-to-call-this-one);
-  text-shadow: 2px 2px 2px var(--mid-dark);
-}
+    /* Add a styling rule for the divider */
+    .kantine-divider {
+      border-top: 1px solid var(--mid-dark);
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
 
-#weather-data div h2 span{
-  font-weight:lighter;
-}
-#weather-data div h2 {
-  font-weight: bolder;
-}
+    .bus-divider {
+      border-top: 1px solid var(--mid-dark);
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
 
-.element p {
-  margin: 0;
-  color: var(--mid-dark);
-}
+    .aktivitets-divider {
+      border-top: 1px solid var(--mid-dark);
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
 
-.element p.error {
-  color: var(--red);
-}
-
-.element p.bus-time {
-  color: var(--green);
-  font-weight: bold;
-}
-
-.element p.weather {
-  color: var(--yellow);
-}
-
-.element p.kantine {
-  color: var(--red);
-  font-weight: bold;
-}
-
-.element p.aktivitets {
-  color: var(--blue);
-  font-weight: bold;
-  font-size: 100%;
-  padding-left:1rem ;
-}
-
-
-#weather-data section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-#weather-data div {
-  display: flex;
-  justify-content: space-between;
-}
-
-#clock {
-  margin-top: 0;
-  font-size: 2rem;
-  color: var(--idk-what-to-call-this-one);
-  text-shadow: 2px 2px 2px var(--mid-dark);
-}
-
-.weather {
-  display: flex;
-  justify-content: end;
-}
-
-#aktivitets-data div {
-  display: flex;
-  justify-content: space-between;
-}
-
-#date {
-  margin-top: 0;
-  font-size: 2rem;
-  color: var(--idk-what-to-call-this-one);
-  text-shadow: 2px 2px 2px var(--mid-dark);
-}
-
-/* PRAKTIK INFO BOX */
-.praktisk-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.praktisk-info article h5{
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-.praktisk-info article li{
-  list-style: none;
-}
-.praktisk-info article li p span{
-  font-style: italic;
-}
-
-
-/* Scrolling news section */
-#news-data {
-  white-space: nowrap;
-  overflow-x: auto;
-  background-color: #e03235;
-  padding: 0.5rem;
-  margin-top: 0;
-  margin-bottom: 0;
-
-}
-
-#news-data p {
-  color: #ded3b6;
-  text-transform: uppercase;
-
-}
-
-/* Add a styling rule for the divider */
-.kantine-divider {
-  border-top: 1px solid var(--mid-dark);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.bus-divider {
-  border-top: 1px solid var(--mid-dark);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.aktivitets-divider {
-  border-top: 1px solid var(--mid-dark);
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-    </style>
+  </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="element-grid">
-            <div class="news-grid">
-                <div class="aktivitets-grid">
-                    <div class="element" id="weather-data">
-                        <div>
-                            <h2>TECH<span>COLLEGE</span></h2>
-                            <p id="clock" class="clock"></p>
-                        </div>
-                        <section>
-                            <!-- grid here -->
-                            <article>
-                                <h4>ST. BEDEDAG PÅ TECHCOLLEGE FRA 2024</h4>
-                                <h5>Af Ledelsessekretariatet d. 15-3-2023</h5>
-                                <p>
-                                    Som I ved vedtog Folketinget 28. februar 2023 L 13 om
-                                    konsekvenser ved afskaffelsen af store bededag som
-                                    helligdag. Med lovforslaget bliver store bededag til en
-                                    almindelig ekstra arbejdsdag fra og med 2024.
-                                    https://www.regeringen.dk/nyheder/2023/lovforslag-om-afskaffelse-store-bededag-er-vedtaget-i-folketinget/
-                                </p>
-                                <p>
-                                    Dette betyder, at her på TECHCOLLEGE bliver St. Bededag fra
-                                    2024 en normal undervisningsdag for alle vores elever og en
-                                    almindelig ekstra arbejdsdag for alle medarbejdere.
-                                </p>
-                            </article>
-                            <article>
-                                <h4>KOM TIL TEMADAG OM GRØN OMSTILLING D. 30. MARTS</h4>
-                                <h5>Af Kim Mikael Jensen d. 13-3-2023</h5>
-                                <p>
-                                    Er du nysgerrig på grøn omstilling inden for dit fagområde,
-                                    så kom til temadag på TECHCOLLEGE d. 30. marts.
-                                </p>
-                                <p>
-                                    Du kan blandt andet møde Aalborg Portland, Brøndums
-                                    Autoservice, Frandsen & Søndergaard, Lundsby Renewable
-                                    Solutions.
-                                </p>
-                            </article>
-                        </section>
-                    </div>
-                    <div class="weather-kantine-grid">
-                        <div class="element" id="bus-data">
-                            <div>
-                                <h2>BUSAFGANG 🚌</h2>
-                            </div>
-                        </div>
-                        <div class="element" id="kantine-data">
-                            <div>
-                                <h2>KANTINE 🍝</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <div>
-                            <h2>PRAKTISK INFO 💬</h2>
-                        </div>
-                        <section class="praktisk-info">
-                            <article>
-                                <h5>WIFI INFORMATION:</h5>
-                                <li>
-                                    <p>Brugernavn: <span>ITCN\wireless</span></p>
-                                </li>
-                                <li>
-                                    <p>Wifinavn: <span>Undervisning</span></p>
-                                </li>
-                                <li>
-                                    <p>Password: <span>billed24-maske</span></p>
-                                </li>
-                            </article>
-                            <article>
-                                <h5>COLOURBOX EDUCATIONAL KEY:</h5>
-                                <li>
-                                    <p><span>44689700803</span></p>
-                                </li>
-                            </article>
-                        </section>
-                    </div>
-                </div>
-                <div class="element" id="aktivitets-data">
-                    <div>
-                        <h2>SKEMA 🪧</h2>
-                        <p id="date" class="date"></p>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="element-grid">
+      <div class="news-grid">
+        <div class="aktivitets-grid">
+          <div class="element" id="weather-data">
+            <div>
+              <div>
+                <h2>TECH<span>COLLEGE</span></h2>
+              </div>
+              <div class="weather-clock-container">
+                <p id="clock" class="clock"></p>
+                <p id="weather-d"></p>
+              </div>
             </div>
-            <marquee class="element" id="news-data" loop="true" scrollamount="13"></marquee>
+            <section>
+              <!-- grid here -->
+              <article>
+                <h4>ST. BEDEDAG PÅ TECHCOLLEGE FRA 2024</h4>
+                <h5>Af Ledelsessekretariatet d. 15-3-2023</h5>
+                <p>
+                  Som I ved vedtog Folketinget 28. februar 2023 L 13 om
+                  konsekvenser ved afskaffelsen af store bededag som
+                  helligdag. Med lovforslaget bliver store bededag til en
+                  almindelig ekstra arbejdsdag fra og med 2024.
+                  https://www.regeringen.dk/nyheder/2023/lovforslag-om-afskaffelse-store-bededag-er-vedtaget-i-folketinget/
+                </p>
+                <p>
+                  Dette betyder, at her på TECHCOLLEGE bliver St. Bededag fra
+                  2024 en normal undervisningsdag for alle vores elever og en
+                  almindelig ekstra arbejdsdag for alle medarbejdere.
+                </p>
+              </article>
+              <article>
+                <h4>KOM TIL TEMADAG OM GRØN OMSTILLING D. 30. MARTS</h4>
+                <h5>Af Kim Mikael Jensen d. 13-3-2023</h5>
+                <p>
+                  Er du nysgerrig på grøn omstilling inden for dit fagområde,
+                  så kom til temadag på TECHCOLLEGE d. 30. marts.
+                </p>
+                <p>
+                  Du kan blandt andet møde Aalborg Portland, Brøndums
+                  Autoservice, Frandsen & Søndergaard, Lundsby Renewable
+                  Solutions.
+                </p>
+              </article>
+            </section>
+          </div>
+          <div class="weather-kantine-grid">
+            <div class="element" id="bus-data">
+              <div>
+                <h2>BUSAFGANG 🚌</h2>
+              </div>
+            </div>
+            <div class="element" id="kantine-data">
+              <div>
+                <h2>KANTINE 🍝</h2>
+              </div>
+            </div>
+          </div>
+          <div class="element">
+            <div>
+              <h2>PRAKTISK INFO 💬</h2>
+            </div>
+            <section class="praktisk-info">
+              <article>
+                <h5>WIFI INFORMATION:</h5>
+                <li>
+                  <p>Brugernavn: <span>ITCN\wireless</span></p>
+                </li>
+                <li>
+                  <p>Wifinavn: <span>Undervisning</span></p>
+                </li>
+                <li>
+                  <p>Password: <span>billed24-maske</span></p>
+                </li>
+              </article>
+              <article>
+                <h5>COLOURBOX EDUCATIONAL KEY:</h5>
+                <li>
+                  <p><span>44689700803</span></p>
+                </li>
+              </article>
+            </section>
+          </div>
         </div>
+        <div class="element" id="aktivitets-data">
+          <div>
+            <h2>SKEMA</h2>
+            <p id="date" class="date"></p>
+          </div>
+        </div>
+      </div>
+      <marquee class="element" id="news-data" loop="true" scrollamount="13"></marquee>
     </div>
+  </div>
 
-    <script>
-     const urls = {
-  news: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.dr.dk%2Fnyheder%2Fservice%2Ffeeds%2Fallenyheder%23",
-  busTimes:
-      "https://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=851400602&id2=851973402&rttime&format=json&useBus=1",
-  weather:
-      "https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric",
-  kantine:
-      "https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json",
-  aktivitets: "https://iws.itcn.dk/techcollege/schedules?departmentcode=smed",
-};
+  <script src="./js/main.js" defer></script>
 
-async function FetchAPI(url, json = true) {
-  const response = await fetch(url);
+  <script>
+    const urls = {
+      news: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.dr.dk%2Fnyheder%2Fservice%2Ffeeds%2Fallenyheder%23",
+      busTimes:
+        "https://xmlopen.rejseplanen.dk/bin/rest.exe/multiDepartureBoard?id1=851400602&id2=851973402&rttime&format=json&useBus=1",
+      weather:
+        "https://api.openweathermap.org/data/2.5/weather?q=Aalborg&appid=4d58d6f0a435bf7c5a52e2030f17682d&units=metric",
+      kantine:
+        "https://infoskaerm.techcollege.dk/umbraco/api/content/getcanteenmenu/?type=json",
+      aktivitets: "https://iws.itcn.dk/techcollege/schedules?departmentcode=smed",
+    };
 
-  if (!response.ok) {
-      throw new Error(
+    async function FetchAPI(url, json = true) {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(
           `There was an error: ${response.status} - ${response.statusText}`
-      );
-  }
+        );
+      }
 
-  let data;
+      let data;
 
-  if (json) {
-      data = await response.json();
-  } else {
-      data = await response.text();
-  }
+      if (json) {
+        data = await response.json();
+      } else {
+        data = await response.text();
+      }
 
-  return data;
-}
+      return data;
+    }
 
-Promise.all([
-  FetchAPI(urls.news),
-  FetchAPI(urls.busTimes),
-  FetchAPI(urls.weather),
-  FetchAPI(urls.kantine),
-  FetchAPI(urls.aktivitets),
-])
-  .then(([news, busTimes, weather, kantine, aktivitets]) => {
-      console.log(busTimes);
-      console.log(aktivitets);
-      displayData(news.items.map((val) => val.title).join(" "), "news-data");
+    Promise.all([
+      FetchAPI(urls.news),
+      FetchAPI(urls.busTimes),
+      FetchAPI(urls.weather),
+      FetchAPI(urls.kantine),
+      FetchAPI(urls.aktivitets),
+    ])
+      .then(([news, busTimes, weather, kantine, aktivitets]) => {
+        console.log(busTimes);
+        console.log(aktivitets);
+        displayData(news.items.map((val) => val.title).join(" "), "news-data");
 
-      // Funktion der siger hvor mange minutter der er til næste bus: tid er i formatet "11:33" osv
-      const minutterTilNæsteBus = (time) => {
+        // Funktion der siger hvor mange minutter der er til næste bus: tid er i formatet "11:33" osv
+        const minutterTilNæsteBus = (time) => {
           const now = new Date();
           const busTime = new Date();
           const [hours, minutes] = time.split(":");
@@ -358,148 +387,137 @@ Promise.all([
           const total = Math.floor(diff / 60000);
 
           if (total < 0) {
-              return "Bussen er kørt";
+            return "Bussen er kørt";
           } else if (total < 60) {
-              return `${total} minutter`;
+            return `${total} minutter`;
           } else if (total === 60) {
-              return "1 time";
+            return "1 time";
           } else {
-              return `${Math.floor(total / 60)} timer og ${total % 60} minutter`;
+            return `${Math.floor(total / 60)} timer og ${total % 60} minutter`;
           }
-      };
+        };
 
-      console.log(busTimes);
+        console.log(busTimes);
 
-      // Display only the first 5 items from the Departure array
-      displayData(
+        // Display only the first 5 items from the Departure array
+        displayData(
           busTimes.MultiDepartureBoard.Departure.slice(0, 5).map(
-              (val) => `${val.line} ${val.stop} ${minutterTilNæsteBus(val.time)}`
+            (val) => `${val.line} ${val.stop} ${minutterTilNæsteBus(val.time)}`
           ).join("<hr class='bus-divider'>"),
           "bus-data",
           "bus-time"
-      );
+        );
 
-      displayData(
-           `${weather.name} ${weather.main.temp}°C`,
-           "weather-data",
-           "weather"
-       );
+        displayData(
+          `${weather.main.temp}°`,
+          "weather-d"
+        );
 
-      const currentWeekDay = new Date().toLocaleDateString("da-DK", {
+        // document.getElementById("weather-d").innerText = `${weather.name} ${weather.main.temp}°C`
+
+
+        const currentWeekDay = new Date().toLocaleDateString("da-DK", {
           weekday: "long",
-      });
-      const currentDate = new Date().toLocaleDateString("da-DK", {
+        });
+        const currentDate = new Date().toLocaleDateString("da-DK", {
           weekday: "long",
           year: "numeric",
           month: "2-digit",
           day: "2-digit",
-      });
+        });
 
-      kantine.Days.forEach((day) => {
+        kantine.Days.forEach((day) => {
           const dayName = day.DayName.toLowerCase();
           const dish = day.Dish;
 
           let displayText = `${dayName.charAt(0).toUpperCase() + dayName.slice(1)
-              } - ${dish}`;
+            } - ${dish}`;
           if (dayName === currentWeekDay.toLowerCase()) {
-              displayText += " (Idag)";
+            displayText += " (Idag)";
           }
 
           displayData(displayText, "kantine-data", "kantine");
           // Add a divider after each day
           displayData('<hr class="kantine-divider">', "kantine-data");
-      });
+        });
 
-      const formatTime = (date) => {
+        const formatTime = (date) => {
           return new Date(date).toLocaleTimeString("da-DK", {
-              hour: "2-digit",
-              minute: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
           });
-      };
-      // Filter aktivitets based on current date and education
-      const currentDateFormatted = new Date().toISOString().split("T")[0];
-      const filteredAktivitets = aktivitets.value.filter((val) => {
+        };
+        // Filter aktivitets based on current date and education
+        const currentDateFormatted = new Date().toISOString().split("T")[0];
+        const filteredAktivitets = aktivitets.value.filter((val) => {
           return val.StartDate.split("T")[0] === currentDateFormatted && (val.Education === "Webudvikler" || val.Education === "Grafisk Teknik");
-      });
+        });
 
-      // Sort aktivitets data based on time
-      filteredAktivitets.sort((a, b) => {
+        // Sort aktivitets data based on time
+        filteredAktivitets.sort((a, b) => {
           const timeA = new Date(a.StartDate).getTime();
           const timeB = new Date(b.StartDate).getTime();
           return timeA - timeB;
-      });
+        });
 
-      displayData(
+        displayData(
           filteredAktivitets.map(
-              (val) =>
-                  `${formatTime(val.StartDate)} - ${val.Team} - ${val.Subject} - ${val.Room}`
+            (val) =>
+              `${formatTime(val.StartDate)} - ${val.Team} - ${val.Subject} - ${val.Room}`
           ),
           "aktivitets-data",
           "aktivitets"
-      );
-  })
-  .catch((error) => console.error("Error fetching data:", error));
+        );
+      })
+      .catch((error) => console.error("Error fetching data:", error));
 
-function displayData(data, elementId, className = "") {
-  const element = document.getElementById(elementId);
+    function displayData(data, elementId, className = "") {
+      const element = document.getElementById(elementId);
 
-  if (data) {
-      const dataArray = Array.isArray(data) ? data : [data]; // Ensure data is an array
-      dataArray.forEach((item, index) => {
+      if (data) {
+        const dataArray = Array.isArray(data) ? data : [data]; // Ensure data is an array
+        dataArray.forEach((item, index) => {
           const p = document.createElement("p");
           p.innerHTML = item;
           if (className !== "") {
-              p.classList.add(className);
+            p.classList.add(className);
           }
           element.appendChild(p);
           // Add underline after each p element
           if (className === "aktivitets" && index < dataArray.length - 1) {
-              const hr = document.createElement("hr");
-              hr.classList.add("aktivitets-divider"); // Add a specific class to the hr element
-              element.appendChild(hr);
+            const hr = document.createElement("hr");
+            hr.classList.add("aktivitets-divider"); // Add a specific class to the hr element
+            element.appendChild(hr);
           }
-      });
-  }
-}
-// Function to update the clock
-function updateClock() {
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-  const timeString = `${hours}:${minutes}:${seconds}`;
-  document.getElementById('clock').textContent = timeString;
-}
+        });
+      }
+    }
 
-// Update the clock every second
-setInterval(updateClock, 1000);
+    // Function to update the clock
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const timeString = `${hours}:${minutes}`;
+      document.getElementById('clock').textContent = timeString;
+    }
 
-// Function to update the clock
-function updateClock() {
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-  const timeString = `${hours}:${minutes}:${seconds}`;
-  document.getElementById('clock').textContent = timeString;
-}
+    // Update the clock every second
+    setInterval(updateClock, 1000);
 
-// Update the clock every second
-setInterval(updateClock, 1000);
+    // Function to update the date
+    function updateDate() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = (now.getMonth() + 1).toString().padStart(2, '0');
+      const day = now.getDate().toString().padStart(2, '0');
+      const dateString = `${day}-${month}-${year}`;
+      document.getElementById('date').textContent = dateString;
+    }
 
-// Function to update the date
-function updateDate() {
-  const now = new Date();
-  const year = now.getFullYear();
-  const month = (now.getMonth() + 1).toString().padStart(2, '0');
-  const day = now.getDate().toString().padStart(2, '0');
-  const dateString = `${day}-${month}-${year}`;
-  document.getElementById('date').textContent = dateString;
-}
-
-// Update the date every second
-setInterval(updateDate, 1000);
-    </script>
+    // Update the date every second
+    setInterval(updateDate, 1000);
+  </script>
 </body>
 
 </html>
