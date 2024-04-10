@@ -22,6 +22,10 @@ body {
   color: var(--mid-dark);
 }
 
+html, body {
+  height: 100%; /* Make sure html and body are also full height */
+}
+
 /* .container {
   max-width: 1400px;
   margin: 20px auto;
@@ -29,13 +33,10 @@ body {
 } */
 
 .container {
-  width: 100%;
+  min-height: 100vh; /* This will make the container at least the height of the viewport */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+  flex-direction: column; /* Stack children vertically */
 }
-
 
 .news-grid {
   display: grid;
@@ -46,7 +47,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
 
 .element {
   background-color: var(--idk-what-to-call-this-one);
@@ -103,6 +103,22 @@ body {
   font-weight: bold;
   font-size: 100%;
   padding-left:1rem ;
+}
+
+.weather-clock-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 0;
+
+}
+
+#weather-d {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: var(--idk-what-to-call-this-one);
+  text-shadow: 2px 2px 2px var(--mid-dark);
 }
 
 
@@ -166,13 +182,11 @@ body {
   padding: 0.5rem;
   margin-top: 0;
   margin-bottom: 0;
-
 }
 
 #news-data p {
   color: #ded3b6;
   text-transform: uppercase;
-
 }
 
 /* Add a styling rule for the divider */

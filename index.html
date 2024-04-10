@@ -1,110 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Infoboard</title>
-    <style>
+    <style></style>
+  </head>
 
-
-    </style>
-</head>
-
-<body>
+  <body>
     <div class="container">
-        <div class="element-grid">
-            <div class="news-grid">
-                <div class="aktivitets-grid">
-                    <div class="element" id="weather-data">
-                        <div>
-                            <h2>TECH<span>COLLEGE</span></h2>
-                            <p id="clock" class="clock"></p>
-                        </div>
-                        <section>
-                            <!-- grid here -->
-                            <article>
-                                <h4>ST. BEDEDAG PÅ TECHCOLLEGE FRA 2024</h4>
-                                <h5>Af Ledelsessekretariatet d. 15-3-2023</h5>
-                                <p>
-                                    Som I ved vedtog Folketinget 28. februar 2023 L 13 om
-                                    konsekvenser ved afskaffelsen af store bededag som
-                                    helligdag. Med lovforslaget bliver store bededag til en
-                                    almindelig ekstra arbejdsdag fra og med 2024.
-                                    https://www.regeringen.dk/nyheder/2023/lovforslag-om-afskaffelse-store-bededag-er-vedtaget-i-folketinget/
-                                </p>
-                                <p>
-                                    Dette betyder, at her på TECHCOLLEGE bliver St. Bededag fra
-                                    2024 en normal undervisningsdag for alle vores elever og en
-                                    almindelig ekstra arbejdsdag for alle medarbejdere.
-                                </p>
-                            </article>
-                            <article>
-                                <h4>KOM TIL TEMADAG OM GRØN OMSTILLING D. 30. MARTS</h4>
-                                <h5>Af Kim Mikael Jensen d. 13-3-2023</h5>
-                                <p>
-                                    Er du nysgerrig på grøn omstilling inden for dit fagområde,
-                                    så kom til temadag på TECHCOLLEGE d. 30. marts.
-                                </p>
-                                <p>
-                                    Du kan blandt andet møde Aalborg Portland, Brøndums
-                                    Autoservice, Frandsen & Søndergaard, Lundsby Renewable
-                                    Solutions.
-                                </p>
-                            </article>
-                        </section>
-                    </div>
-                    <div class="weather-kantine-grid">
-                        <div class="element" id="bus-data">
-                            <div>
-                                <h2>BUSAFGANG 🚌</h2>
-                            </div>
-                        </div>
-                        <div class="element" id="kantine-data">
-                            <div>
-                                <h2>KANTINE 🍝</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <div>
-                            <h2>PRAKTISK INFO 💬</h2>
-                        </div>
-                        <section class="praktisk-info">
-                            <article>
-                                <h5>WIFI INFORMATION:</h5>
-                                <li>
-                                    <p>Brugernavn: <span>ITCN\wireless</span></p>
-                                </li>
-                                <li>
-                                    <p>Wifinavn: <span>Undervisning</span></p>
-                                </li>
-                                <li>
-                                    <p>Password: <span>billed24-maske</span></p>
-                                </li>
-                            </article>
-                            <article>
-                                <h5>COLOURBOX EDUCATIONAL KEY:</h5>
-                                <li>
-                                    <p><span>44689700803</span></p>
-                                </li>
-                            </article>
-                        </section>
-                    </div>
+      <div class="element-grid">
+        <div class="news-grid">
+          <div class="aktivitets-grid">
+            <div class="element" id="weather-data">
+              <div>
+                <h2>TECH<span>COLLEGE</span></h2>
+                <div class="weather-clock-container">
+                  <p id="weather-d">
+                  </p>
+                  <p id="clock" class="clock"></p>
                 </div>
-                <div class="element" id="aktivitets-data">
-                    <div>
-                        <h2>SKEMA 🪧</h2>
-                        <p id="date" class="date"></p>
-                    </div>
-                </div>
+              </div>
+              <section>
+                <!-- grid here -->
+                <article>
+                  <h4>ST. BEDEDAG PÅ TECHCOLLEGE FRA 2024</h4>
+                  <h5>Af Ledelsessekretariatet d. 15-3-2023</h5>
+                  <p>
+                    Som I ved vedtog Folketinget 28. februar 2023 L 13 om
+                    konsekvenser ved afskaffelsen af store bededag som
+                    helligdag. Med lovforslaget bliver store bededag til en
+                    almindelig ekstra arbejdsdag fra og med 2024.
+                    https://www.regeringen.dk/nyheder/2023/lovforslag-om-afskaffelse-store-bededag-er-vedtaget-i-folketinget/
+                  </p>
+                  <p>
+                    Dette betyder, at her på TECHCOLLEGE bliver St. Bededag fra
+                    2024 en normal undervisningsdag for alle vores elever og en
+                    almindelig ekstra arbejdsdag for alle medarbejdere.
+                  </p>
+                </article>
+                <article>
+                  <h4>KOM TIL TEMADAG OM GRØN OMSTILLING D. 30. MARTS</h4>
+                  <h5>Af Kim Mikael Jensen d. 13-3-2023</h5>
+                  <p>
+                    Er du nysgerrig på grøn omstilling inden for dit fagområde,
+                    så kom til temadag på TECHCOLLEGE d. 30. marts.
+                  </p>
+                  <p>
+                    Du kan blandt andet møde Aalborg Portland, Brøndums
+                    Autoservice, Frandsen & Søndergaard, Lundsby Renewable
+                    Solutions.
+                  </p>
+                </article>
+              </section>
             </div>
-            <marquee class="element" id="news-data" loop="true" scrollamount="13"></marquee>
+            <div class="weather-kantine-grid">
+              <div class="element" id="bus-data">
+                <div>
+                  <h2>BUSAFGANG 🚌</h2>
+                </div>
+              </div>
+              <div class="element" id="kantine-data">
+                <div>
+                  <h2>KANTINE 🍝</h2>
+                </div>
+              </div>
+            </div>
+            <div class="element">
+              <div>
+                <h2>PRAKTISK INFO 💬</h2>
+              </div>
+              <section class="praktisk-info">
+                <article>
+                  <h5>WIFI INFORMATION:</h5>
+                  <li>
+                    <p>Brugernavn: <span>ITCN\wireless</span></p>
+                  </li>
+                  <li>
+                    <p>Wifinavn: <span>Undervisning</span></p>
+                  </li>
+                  <li>
+                    <p>Password: <span>billed24-maske</span></p>
+                  </li>
+                </article>
+                <article>
+                  <h5>COLOURBOX EDUCATIONAL KEY:</h5>
+                  <li>
+                    <p><span>44689700803</span></p>
+                  </li>
+                </article>
+              </section>
+            </div>
+          </div>
+          <div class="element" id="aktivitets-data">
+            <div>
+              <h2>SKEMA 🪧</h2>
+              <p id="date" class="date"></p>
+            </div>
+          </div>
         </div>
+        <marquee
+          class="element"
+          id="news-data"
+          loop="true"
+          scrollamount="13"
+        ></marquee>
+      </div>
     </div>
 
     <script src="./js/main.js" defer></script>
-</body>
-
+  </body>
 </html>

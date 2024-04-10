@@ -79,6 +79,9 @@ Promise.all([
            "weather"
        );
 
+     document.getElementById("weather-d").innerText = `${weather.name} ${weather.main.temp}°C`
+
+
       const currentWeekDay = new Date().toLocaleDateString("da-DK", {
           weekday: "long",
       });
