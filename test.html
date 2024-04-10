@@ -101,7 +101,7 @@
       font-weight: bolder;
     }
 
-    #weather-data div div{
+    #weather-data div div {
       margin: 0;
       padding: 0;
     }
@@ -140,12 +140,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 2rem;
+      gap: 1rem;
       padding: 0;
 
     }
 
-    #weather-d p{
+    #weather-d p {
       margin-top: 0;
       font-size: 2rem;
       color: var(--idk-what-to-call-this-one);
@@ -230,6 +230,11 @@
       margin-bottom: 10px;
     }
 
+    .vertical-divider {
+      border-left: 1px solid var(--mid-dark);
+      height: 30px;
+      /* margin: 0 10px; */
+    }
   </style>
 </head>
 
@@ -245,6 +250,7 @@
               </div>
               <div class="weather-clock-container">
                 <p id="clock" class="clock"></p>
+                <div class="vertical-divider"></div>
                 <p id="weather-d"></p>
               </div>
             </div>
