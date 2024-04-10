@@ -226,3 +226,18 @@ padding: 20px;
   height: 35px;
   /* margin: 0 10px; */
 }
+
+#bus-data div h2{
+  display: flex;
+  justify-content: space-between;
+}
+
+#kantine-data div h2{
+  display: flex;
+  justify-content: space-between;
+}
+
+#praktisk-info-data h2{
+  display: flex;
+  justify-content: space-between;
+}
