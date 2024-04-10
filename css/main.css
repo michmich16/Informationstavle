@@ -22,20 +22,24 @@ body {
   color: var(--mid-dark);
 }
 
-html, body {
-  height: 100%; /* Make sure html and body are also full height */
+html,
+body {
+  height: 100%;
+  /* Make sure html and body are also full height */
 }
 
 /* .container {
-  max-width: 1400px;
-  margin: 20px auto;
-  padding: 20px;
+max-width: 1400px;
+margin: 20px auto;
+padding: 20px;
 } */
 
 .container {
-  min-height: 100vh; /* This will make the container at least the height of the viewport */
+  min-height: 100vh;
+  /* This will make the container at least the height of the viewport */
   display: flex;
-  flex-direction: column; /* Stack children vertically */
+  flex-direction: column;
+  /* Stack children vertically */
 }
 
 .news-grid {
@@ -68,11 +72,29 @@ html, body {
   text-shadow: 2px 2px 2px var(--mid-dark);
 }
 
-#weather-data div h2 span{
-  font-weight:lighter;
+/* WEATHER DATA */
+#weather-data section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
+
+#weather-data div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#weather-data div h2 span {
+  font-weight: lighter;
+}
+
 #weather-data div h2 {
   font-weight: bolder;
+}
+
+#weather-data div div {
+  margin: 0;
+  padding: 0;
 }
 
 .element p {
@@ -102,35 +124,23 @@ html, body {
   color: var(--blue);
   font-weight: bold;
   font-size: 100%;
-  padding-left:1rem ;
+  padding-left: 1rem;
 }
 
 .weather-clock-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: 0;
 
 }
 
-#weather-d {
+#weather-d p {
   margin-top: 0;
-  font-size: 1.3rem;
+  font-size: 2rem;
   color: var(--idk-what-to-call-this-one);
   text-shadow: 2px 2px 2px var(--mid-dark);
-}
-
-
-#weather-data section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-#weather-data div {
-  display: flex;
-  justify-content: space-between;
 }
 
 #clock {
@@ -162,14 +172,17 @@ html, body {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.praktisk-info article h5{
+
+.praktisk-info article h5 {
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
-.praktisk-info article li{
+
+.praktisk-info article li {
   list-style: none;
 }
-.praktisk-info article li p span{
+
+.praktisk-info article li p span {
   font-style: italic;
 }
 
@@ -206,4 +219,10 @@ html, body {
   border-top: 1px solid var(--mid-dark);
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.vertical-divider {
+  border-left: 1px solid var(--mid-dark);
+  height: 30px;
+  /* margin: 0 10px; */
 }
