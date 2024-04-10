@@ -222,7 +222,7 @@ padding: 20px;
 }
 
 .vertical-divider {
-  border-left: 1px solid var(--mid-dark);
-  height: 30px;
+  border-left: 1.5px solid var(--mid-dark);
+  height: 35px;
   /* margin: 0 10px; */
 }
