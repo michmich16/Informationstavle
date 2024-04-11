@@ -3,176 +3,244 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 100%;
-    /* Reduce font size by 10% */
-}
-
-:root {
+  }
+  
+  :root {
     --red: #e03235;
     --blue: #0196d2;
     --green: #008516;
     --yellow: #d98825;
     --mid-dark: #3e3d41;
     --idk-what-to-call-this-one: #ded3b6;
-}
-
-body {
+  }
+  
+  body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #3e3d41;
-    color: var(--mid-dark);
-}
-
-/* .container {
-    max-width: 1400px;
-    margin: 20px auto;
-    padding: 20px;
-} */
-
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: auto;
-    padding: 20px;
-}
-
-.element-grid {
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-grid-gap: 20px; */
-}
-
-.news-grid {
+    padding: 0;
+    /* background-color: #3e3d41; */
+    background-image: url(/assets/img/pexels-elena-saharova-5098043.jpg);
+    background-position: center;
+    background-size: cover;
+    color: var(--idk-what-to-call-this-one);
+  }
+  
+  html,
+  body {
+    height: 100%;
+    /* Make sure html and body are also full height */
+  }
+  
+  /* .container {
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
+  } */
+  
+  .container {
+    min-height: 100vh;
+    /* This will make the container at least the height of the viewport */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .news-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-}
-
-.weather-kantine-grid {
+  }
+  
+  .weather-kantine-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
-
-
-.element {
-    background-color: var(--idk-what-to-call-this-one);
+  }
+  
+  .element {
+    background-color:#000000c8;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.102);
     margin: 0.5rem;
-}
-
-.element div {
+  }
+  
+  .element div {
     background-color: var(--red);
     padding: 10px;
     margin-bottom: 10px;
-}
-
-.element h2 {
+  }
+  
+  .element h2 {
     margin-top: 0;
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: var(--idk-what-to-call-this-one);
     text-shadow: 2px 2px 2px var(--mid-dark);
-}
-
-.element p {
-    margin: 0;
-    color: var(--mid-dark);
-}
-
-.element p.error {
-    color: var(--red);
-}
-
-.element p.bus-time {
-    color: var(--green);
-    font-weight: bold;
-}
-
-.element p.weather {
-    color: var(--yellow);
-}
-
-.element p.kantine {
-    color: var(--red);
-    font-weight: bold;
-}
-
-.element p.aktivitets {
-    color: var(--blue);
-    font-style: italic;
-    font-size: 75%;
-}
-
-
-#weather-data section {
+  }
+  
+  /* WEATHER DATA */
+  #weather-data section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-}
-
-#weather-data div {
+    gap: 1rem;
+  }
+  
+  #weather-data div {
     display: flex;
     justify-content: space-between;
-}
-
-#clock {
+  }
+  
+  #weather-data div h2 span {
+    font-weight: lighter;
+  }
+  
+  #weather-data div h2 {
+    font-weight: bolder;
+  }
+  
+  #weather-data div div {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .element p {
+    margin: 0;
+    color: var(--idk-what-to-call-this-one);
+    font-weight: 100;
+  }
+  
+  .element p.error {
+    color: var(--red);
+  }
+  
+  .element p.bus-time {
+    color: var(--green);
+    font-weight: bold;
+  }
+  
+  .element p.weather {
+    color: var(--yellow);
+  }
+  
+  .element p.kantine {
+    color: var(--red);
+    font-weight: bold;
+  }
+  
+  .element p.aktivitets {
+    color: var(--blue);
+    font-weight: bold;
+    font-size: 100%;
+    padding-left: 1rem;
+  }
+  
+  .weather-clock-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+  
+  }
+  
+  #weather-d p {
     margin-top: 0;
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: var(--idk-what-to-call-this-one);
     text-shadow: 2px 2px 2px var(--mid-dark);
-}
-
-.weather {
+  }
+  
+  #clock {
+    margin-top: 0;
+    font-size: 2rem;
+    color: var(--idk-what-to-call-this-one);
+    text-shadow: 2px 2px 2px var(--mid-dark);
+  }
+  
+  .weather {
     display: flex;
     justify-content: end;
-}
-
-#aktivitets-data div {
+  }
+  
+  #aktivitets-data div {
     display: flex;
     justify-content: space-between;
-}
-
-#date {
+  }
+  
+  #date {
     margin-top: 0;
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: var(--idk-what-to-call-this-one);
     text-shadow: 2px 2px 2px var(--mid-dark);
-}
-
-
-/* Scrolling news section */
-#news-data {
+  }
+  
+  /* PRAKTIK INFO BOX */
+  .praktisk-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .praktisk-info article h5 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .praktisk-info article li {
+    list-style: none;
+  }
+  
+  .praktisk-info article li p span {
+    font-style: italic;
+  }
+  
+  
+  /* Scrolling news section */
+  #news-data {
     white-space: nowrap;
     overflow-x: auto;
     background-color: #e03235;
     padding: 0.5rem;
     margin-top: 0;
     margin-bottom: 0;
-
-}
-
-#news-data p {
+  }
+  
+  #news-data p {
     color: #ded3b6;
     text-transform: uppercase;
-
-}
-
-/* Add a styling rule for the divider */
-.kantine-divider {
+  }
+  
+  /* Add a styling rule for the divider */
+  .kantine-divider {
     border-top: 1px solid var(--mid-dark);
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.bus-divider {
+  }
+  
+  .bus-divider {
     border-top: 1px solid var(--mid-dark);
     margin-top: 10px;
     margin-bottom: 10px;
-}
-
-.aktivitets-divider {
+  }
+  
+  .aktivitets-divider {
     border-top: 1px solid var(--mid-dark);
     margin-top: 10px;
     margin-bottom: 10px;
-}
+  }
+  
+  .vertical-divider {
+    border-left: 1.5px solid var(--mid-dark);
+    height: 35px;
+    /* margin: 0 10px; */
+  }
+  
+  #bus-data div h2{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #kantine-data div h2{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #praktisk-info-data h2{
+    display: flex;
+    justify-content: space-between;
+  }
