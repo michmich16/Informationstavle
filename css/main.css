@@ -19,7 +19,7 @@ body {
   margin: auto;
   padding: 0;
   /* background-color: #3e3d41; */
-  background-image: url(/assets/img/pexels-elena-saharova-5098043.jpg);
+  background-image: url(../assets/img/pexels-elena-saharova-5098043.jpg);
   background-position: center;
   background-size: cover;
   color: var(--idk-what-to-call-this-one);
