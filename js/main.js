@@ -74,9 +74,9 @@ const urls = {
       );
 
       displayData(
-        `${weather.main.temp}°`,
+        `${weather.main.temp.toString().split('.')[0]}°`,
         "weather-d"
-      );
+    );
 
       // document.getElementById("weather-d").innerText = `${weather.name} ${weather.main.temp}°C`
 
