@@ -42,6 +42,7 @@ padding: 20px;
   /* This will make the container at least the height of the viewport */
   display: flex;
   flex-direction: column;
+  
 }
 
 .news-grid {
@@ -59,6 +60,8 @@ padding: 20px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.102);
   margin: 0.5rem;
+  /* make it full screen i think */
+  margin-top: 30px; 
 }
 
 .element div {
